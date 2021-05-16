@@ -12,15 +12,13 @@ test_in_env: test_unit_in_env
 test: test_unit
 
 UNIT_TEST_CMD = $(REPO_ROOT) nosetests $(NOSECFG) .
-UNIT_TEST_COV_CMD = $(REPO_ROOT) coverage run -m nose $(NOSECFG) .
+UNIT_TEST_COV_CMD = $(REPO_ROOT) coverage run -m nose $(NOSECFG) . && coverage report && coverage html
 
 test_unit:
 	$(UNIT_TEST_CMD)
 
 test_unit_cov:
 	$(UNIT_TEST_COV_CMD)
-	coverage report
-	coverage html
 
 test_unit_in_env: venv_dev
 	$(ACTIVATE_DEV_VENV) && $(UNIT_TEST_CMD)
