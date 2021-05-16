@@ -111,7 +111,7 @@ jobs:
         run: make test_unit test_functional
 
       - name: Run analyzer tests coverage
-        working-directory: analyzer/tests
+        working-directory: analyzer
         run: make test_unit_cov
 
   common:
