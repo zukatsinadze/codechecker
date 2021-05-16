@@ -110,6 +110,10 @@ jobs:
         working-directory: analyzer
         run: make test_unit test_functional
 
+      - name: Run analyzer tests coverage
+        working-directory: analyzer/tests
+        run: make test_unit_cov
+
   common:
     name: Common libraries
     runs-on: ubuntu-18.04
